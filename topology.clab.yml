@@ -17,19 +17,33 @@ topology:
       mgmt-ipv4: 10.0.1.1
     s02:
       mgmt-ipv4: 10.0.1.2
-    l01:
+    l01a:
       mgmt-ipv4: 10.0.2.1
-    l02:
+    l01b:
       mgmt-ipv4: 10.0.2.2
+    l02a:
+      mgmt-ipv4: 10.0.2.3 
+    l02b:
+      mgmt-ipv4: 10.0.2.4
     h01:
       mgmt-ipv4: 10.0.3.1
+    h02:
+      mgmt-ipv4: 10.0.3.2
 
   links:
-    - endpoints: ["l01:eth1", "s01:eth1"]
-    - endpoints: ["l01:eth2", "s02:eth1"]
-    - endpoints: ["l02:eth1", "s01:eth2"]
-    - endpoints: ["l02:eth2", "s02:eth2"]
-    - endpoints: ["l01:eth3", "l02:eth3"]
-    - endpoints: ["l01:eth4", "l02:eth4"]
-    - endpoints: ["h01:eth1", "l01:eth10"]
-    - endpoints: ["h01:eth2", "l02:eth10"]
+    - endpoints: ['h01:eth1', 'l01a:eth10']
+    - endpoints: ['h01:eth2', 'l01b:eth10']
+    - endpoints: ['l01a:eth1', 's01:eth1']
+    - endpoints: ['l01a:eth2', 's02:eth1']
+    - endpoints: ['l01a:eth3', 'l01b:eth3']
+    - endpoints: ['l01a:eth4', 'l01b:eth4']
+    - endpoints: ['l02a:eth1', 'l02b:eth1']
+    - endpoints: ['l02a:eth2', 'l02b:eth2']
+    - endpoints: ['l02a:eth4', 's01:eth4']
+    - endpoints: ['l02a:eth5', 's02:eth5']
+    - endpoints: ['l02a:eth7', 'h02:eth7']
+    - endpoints: ['l02b:eth4', 's02:eth4']
+    - endpoints: ['l02b:eth5', 's01:eth5']
+    - endpoints: ['l02b:eth8', 'h02:eth8']
+    - endpoints: ['s01:eth2', 'l01b:eth1']
+    - endpoints: ['s02:eth2', 'l01b:eth2']

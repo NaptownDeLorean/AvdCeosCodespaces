@@ -1,6 +1,7 @@
 ---
 - name: Run show commands on all switches and print the output
-  hosts: [l01,l02,s01,s02]
+  #hosts: [l01,l02,s01,s02]
+  hosts: [ceos]
   vars:
     ansible_connection: httpapi
     ansible_network_os: eos

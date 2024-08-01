@@ -1,0 +1,40 @@
+name: topology.clab.ceos
+topology:
+  kinds:
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux
+      type: ixrd3
+  nodes:
+    s01:
+      kind: nokia_srlinux
+    s02:
+      kind: nokia_srlinux
+    l01a:
+      kind: nokia_srlinux
+    l01b:
+      kind: nokia_srlinux
+    l02a:
+      kind: nokia_srlinux
+    l02b:
+      kind: nokia_srlinux
+    h01:
+      kind: nokia_srlinux
+    h02:
+      kind: nokia_srlinux
+  links:
+  - endpoints: ['h01:eth1', 'l01a:eth10']
+  - endpoints: ['h01:eth2', 'l01b:eth10']
+  - endpoints: ['l01a:eth1', 's01:eth1']
+  - endpoints: ['l01a:eth2', 's02:eth1']
+  - endpoints: ['l01a:eth3', 'l01b:eth3']
+  - endpoints: ['l01a:eth4', 'l01b:eth4']
+  - endpoints: ['l02a:eth1', 'l02b:eth1']
+  - endpoints: ['l02a:eth2', 'l02b:eth2']
+  - endpoints: ['l02a:eth4', 's01:eth4']
+  - endpoints: ['l02a:eth5', 's02:eth5']
+  - endpoints: ['l02a:eth7', 'h02:eth7']
+  - endpoints: ['l02b:eth4', 's02:eth4']
+  - endpoints: ['l02b:eth5', 's01:eth5']
+  - endpoints: ['l02b:eth8', 'h02:eth8']
+  - endpoints: ['s01:eth2', 'l01b:eth1']
+  - endpoints: ['s02:eth2', 'l01b:eth2']
